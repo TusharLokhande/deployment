@@ -1,0 +1,13 @@
+Following are the purposes for each folder
+
+1. Assets - To add static images/icon used in entire application.
+2. Components - To add only dynamic and reusable Component.
+3. Helpers - To add the functionality required in application which is common to every Component/Pages.
+4. Pages- To add static Pages or the pages which are not dynamic in nature.
+5. Layout-To add UI Layout related Pages/Components.
+6. Routes- To add routing/link to Pages/Components.
+7. Helpers/API - To call APIs
+
+Note
+1. Each Folder/ File name should be in Pascal Case.
+2. All API calls must be made to function APICall present in Helpers/API/APICalls

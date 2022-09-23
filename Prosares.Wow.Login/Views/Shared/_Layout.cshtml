@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prosares WOW - @ViewData["Title"]</title>
+      <link type="text/css" rel="stylesheet" href="~/css/bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="~/css/fontawesome-all.min.css" />
+    <link type="text/css" rel="stylesheet" href="~/css/style.css" />
+    
+    <link type="text/css" rel="stylesheet" href="~/css/custom.css" />
+
+    @* Tenant CSS *@
+    @*<link rel="stylesheet" href="@TenantCSSUrl" />*@
+    @*<script src="~/js/jquery.min.js"></script>*@
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <script type="text/javascript" src="~/js/popper.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/Custom/Common/common.js" asp-append-version="true"></script>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+@*<body>*@
+@*    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">WowLoginModule</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>*@
+<body class="bg-image" style="background-image: url('/images/bg_img2.jpg'); background-repeat:no-repeat; background-size:100% 100%">
+    <div class="main-wrapper bg-image" id="main-wrapper">
+        @* <main role="main" class="pb-3"> *@
+        @RenderBody()
+        @* </main> *@
+    </div>
+
+    @* <footer class="border-top footer text-muted">
+            <div class="container">
+                &copy; 2021 - SureAlly.Core - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            </div>
+        </footer> *@
+    
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

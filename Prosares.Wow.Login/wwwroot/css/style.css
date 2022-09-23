@@ -1,0 +1,326 @@
+html, body, .full-height {
+	height: 100%;
+}
+
+ul, li {
+	list-style-type: none;
+	padding: 0px;
+	margin: 0px;
+}
+a:hover, a:focus {
+	text-decoration: none;
+}
+p { margin:0px;}
+.login-form {
+	width: 90%;
+	margin:9% auto 4% auto;
+ 	position: relative;
+ 	-webkit-border-radius: 0.4em;
+	-o-border-radius: 0.4em;
+	-moz-border-radius: 0.4em;
+
+}
+.bg-image {
+	background-repeat: no-repeat !important;
+    background-size: cover !important;
+}
+.main-wrapper {    
+    height: 100vh;
+}
+.center-container {
+    height: 200px;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 15px;
+}
+.welcome-login{
+	font-size: 25px;
+}
+.logoimage{
+	width: 210px;
+	padding: 15px 0px;
+}
+.logo_section2 h3 {
+	padding: 15px 0px;
+	margin: 0px;	
+}
+.nav>li>a {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+}
+#signup select.form-control {
+	border-radius: 20px;
+	margin-bottom: 15px;
+	font-size: 14px;
+}
+option{
+	padding: 2px 1px 0px !important;
+}
+.head {
+	position: absolute;
+	top: -9%;
+    left: 41%;
+}
+.head .img-wrapper {
+	border-radius:50%;
+	-webkit-border-radius:50%;
+	-o-border-radius:50%;
+	-moz-border-radius:50%;
+    width: 85px;
+    height: 85px;
+    padding: 11px;
+	text-align:center;
+}
+.head .img-wrapper i {
+	font-size:36px;
+}
+.container-fluid{
+	float: left;
+}
+.main{
+	position:relative;
+}
+.main-wrapper{
+	overflow: auto;
+}
+.main input[type="text"], .main input[type="password"], .main input[type="email"] {
+	border-radius: 20px;
+	padding: 10px 15px;
+	font-size: 13px;
+	width: 100%;
+}
+.lables {
+    margin-bottom: 8px;
+    display: block;
+}
+.main form {
+	width: 80%;
+	margin: 0 auto;
+	padding: 6% 0 9% 0;
+	position: relative;
+}
+.main form i{
+	position: absolute;
+    float: right;
+	right: 10px;
+    z-index: 9;
+    margin-top: 5px;
+	font-size: 17px;
+}
+.main form i.fa.fa-eye-slash, i.fa.fa-eye {
+	margin-top: 4px;
+}
+.main p {
+	text-align: center;
+}
+input[type="text"], input[type="password"], input[type="email"] {
+	text-align: left;
+	position: relative;
+	width: 92%;
+	padding: 3%;
+	height: calc(1.5em + .75rem + 2px);
+	margin-bottom: 4%;
+	font-size: 16px;
+	outline: none;
+	border-radius: 5px;
+	-webkit-appearance: none;
+}
+input[type="text"]:hover, input[type="password"]:hover, input[type="email"]:hover {
+	transition: 0.5s;
+	-webkit-transition: 0.5s;
+	-moz-transition: 0.5s;
+	-o-transition: 0.5s;
+	-ms-transition: 0.5s;
+}
+.submit {
+	text-align: center;
+	margin-top: 10px;
+}
+/* Responsive Styles Below */
+@media only screen and (min-width: 280px) and (max-width: 575px) {
+	.center-align h3{
+		font-size: 17px;
+	}
+	.logoimage {
+	    max-width: 100%;
+	}
+	.center-container .row .col.s6{
+		width: 100%;
+	}
+	.center-container .row .col.s6 h3{
+		font-size: 17px;
+	}
+	.center-container{
+		width: 100%;
+		margin-top: 20px;
+	}
+	.center-container .p-text{
+		width: 100%;
+	    text-align: justify;
+	}
+	.border-left{
+		border: 0;
+	}
+	.login-form{
+		width: 100%;
+		margin: 19% 0 4% 0;
+	}
+	.row .col{
+		padding: 0;
+	}
+}
+.left-section {
+	padding:125px 0px;
+}
+.left-section p
+{
+	color: #fff !important;
+
+}
+
+.left-section button{
+	margin-top: 1rem!important;
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+
+}
+
+.login-form .nav {
+	overflow:hidden;
+	border:none;
+	border-radius:4px;
+}
+.login-form .nav {
+	width: 100%;
+    padding: 15% 15% 0;
+}
+.login-form li { width:49%; text-align:center;}
+.login-form li a {
+    font-size: 16px;
+    border-radius: 0px;
+    font-weight: 600;
+}
+#login-modal-popup .modal-header h4.modal-title,#resetPass-modal-popup .modal-header h4.modal-title,#setPass-modal-popup .modal-header h4.modal-title,#reqPass-modal-popup .modal-header h4.modal-title, #report-correct-number .modal-content h4.modal-title {
+	font-weight:600;
+	font-size: 14px;
+}
+.phone_verify, .set_pass,.req_pass, .auth {
+	padding: 12% 0 0;
+}
+.phone_verify h3, .set_pass h3,.req_pass h3, .auth h3 {
+	font-size: 22px;
+	margin-bottom: 15px;
+}
+.phone_verify select.form-control {
+	border-radius: 20px;
+	margin-bottom: 10px;
+	font-size: 14px;
+}
+.phone_verify .in_num {
+    text-decoration: underline;
+    display: inline-block;
+}
+.phone_verify .sec_warning {
+    line-height: 20px;
+    display: inline-block;
+    margin-top: 10px;
+}
+.sec_left {
+	width: 100%;
+}
+.sec_left p {
+	float: left;
+    line-height: 30px;
+    margin: 0px;
+}
+.sec_left a {
+	float: right;
+    padding: 5px 10px;
+    font-size: 12px;
+    border-radius: 6px;
+}
+.user_text {
+	margin-bottom: 15px;
+}
+.user_text p {
+	text-align: left;
+    float: left;
+    font-size: 12px;
+    line-height: 21px;
+}
+.user_text span.user_available, .user_text span.not_available {
+	float: right;    
+    border-radius: 40px;
+    padding: 0px 10px;
+    font-size: 12px;
+}
+.user_text span i {
+	position: relative;
+	right: 0px;
+	float: none;
+	font-size: 12px;
+}
+.s_text {
+	font-size: 12px;
+	line-height: 15px;
+	display: inline-block;
+}
+.auth_text span {
+	display: block;
+	font-size: 12px;
+}
+.auth_text span a {
+	display: inline-block;
+	text-decoration: underline;
+	margin-left: 10px;
+}
+.btn { font-size:14px;}
+.btn:focus { box-shadow:none !important;}
+@media only screen and (min-width: 240px) and (max-width: 480px) {
+	.left-section { padding:40px 20px;}
+	span.ul { font-size:16px;}
+	.italic-head { width:100%; font-size: 22px; line-height: 30px;}
+	.head {top: -11%; left: 38%;}
+}
+@media only screen and (min-width: 480px) and (max-width: 640px) {
+	.left-section { padding:40px 20px;}
+	span.ul { font-size:16px;}
+	.italic-head { width:100%;}
+	.head {top: -11%; left: 40%;}
+	.border-left { border-left:none;}
+	.center-container { height:auto; margin-top:0px;}	
+}
+@media only screen and (min-width: 640px) and (max-width: 768px) {
+	.left-section { padding:40px 20px;}	
+	.border-left { border-left:none;}
+	.center-container { height:auto; margin-top:0px;}
+	.head { left:42%;}
+}
+@media only screen and (min-width: 768px) and (max-width: 1200px) {
+	.left-section { padding:30px 0px;}
+	.border-left { border-left:none;}
+	.login-form, .italic-head, .p-text {width:100%;}
+}
+@media only screen and (min-width: 1200px) and (max-width: 1600px) {
+	.left-section { padding:70px 0px;}
+}
+
+.hidden-true
+{
+	display:none;
+}
+
+input.input-validation-error {
+	background: #FEF1EC !important;
+	border: 1px solid #CD0A0A !important;
+}
+textarea.input-validation-error {
+	background: #FEF1EC !important;
+	border: 1px solid #CD0A0A !important;
+}
+select.input-validation-error {
+	background: #FEF1EC !important;
+	border: 1px solid #CD0A0A !important;
+}

@@ -1,0 +1,14 @@
+.expired-h2 {
+    font-size: 5vmin;
+    margin-top: 0;
+    margin-bottom: 40px;
+  }
+  
+.access-expired-body{
+  padding-top: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  display: block;
+}

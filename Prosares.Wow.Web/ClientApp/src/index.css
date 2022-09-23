@@ -1,0 +1,63 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+/* primary button color */
+.btn-primary,
+.btn-primary:hover {
+  display: inline-block !important;
+  border: 1px solid #96c61c !important;
+  background: #96c61c !important;
+  color: #212529 !important;
+}
+
+.numRight {
+  text-align: right;
+}
+
+/* remove up-down arrow from number textfield */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+/* datepicker height */
+.MuiInputBase-inputSizeSmall {
+  height: 18px !important;
+}
+
+/* @media screen and (max-width: 768px) {
+
+} */
+
+/* .menubar-visible .menubar-inverse .gui-controls > li ul > li > a:before,
+.menubar-visible .menubar-inverse .gui-controls > li ul > li:before {
+  display: block;
+}
+
+.menubar-inverse .gui-controls > li ul > li > a:before,
+.menubar-inverse .gui-controls > li ul > li:before {
+  display: none;
+} */
+
+/* menubar style */
+/* #main-menu > li:nth-child(3) > ul > li:nth-child(1)::before {
+  border-left: none !important;
+}
+
+#main-menu > li:nth-child(3) > ul > li::before {
+  bottom: 0 !important;
+} */
+/* menubar style */

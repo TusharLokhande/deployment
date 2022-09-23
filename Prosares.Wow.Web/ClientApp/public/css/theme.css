@@ -1,0 +1,432 @@
+@charset "utf-8";
+/* CSS Document */
+
+:root{
+	--blue:#3c3c3c;
+	--orange:#f16d22;
+	--yellow:#ffff00;
+}
+
+#base > .backdrop {
+	background-color: rgba(12, 12, 12, 0.33);
+}
+#header {
+	background:#3c3c3c;
+}
+.header-nav > li.disabled > a {
+	color: #969c9c;
+}
+.header-nav > li.disabled > a:hover, .header-nav > li.disabled > a:focus {
+	color: #969c9c;
+	background-color: transparent;
+}
+.header-nav-profile .dropdown > a {
+	border-left: 1px solid transparent;
+	border-right: 1px solid transparent;
+}
+.header-nav-profile .dropdown > a .ink {
+	background-color: rgba(83, 88, 88, 0.15);
+}
+.header-nav-profile .dropdown.open {
+	color: #313534;
+}
+.header-nav-profile .dropdown.open > a {
+	background-color: #ffffff;
+	border-color: rgba(255, 255, 255, 0.9);
+	-webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);
+	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);
+}
+#header.header-inverse {
+	background: #242a31;
+	color: rgba(255, 255, 255, 0.6);
+}
+.header-inverse .header-nav .btn-icon-toggle:hover {
+	background-color: rgba(255, 255, 255, 0.15);
+}
+
+@media (max-width: 768px) {
+.header-inverse .headerbar-left {
+	background: #242a31;
+	border-bottom-color: rgba(255, 255, 255, 0.15);
+}
+.header-inverse .headerbar-right {
+	background: #242a31;
+}
+}
+#menubar {
+	color: rgba(12, 12, 12, 0.85);
+}
+#menubar:before {
+	background: #f2f3f3;
+	-webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);
+	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);
+}
+#menubar .nano-pane {
+	background: transparent;
+}
+#menubar .menubar-foot-panel {
+	border-top: 1px solid rgba(12, 12, 12, 0.07);
+}
+.menubar-fixed-panel {
+	border-bottom: 1px solid rgba(12, 12, 12, 0.07);
+}
+#menubar.menubar-inverse {
+	color: rgba(255, 255, 255, 0.55);
+}
+#menubar.menubar-inverse:before {
+background:#2f2f2f;
+	/*	background: linear-gradient(180deg, #5f1fe7 25%, #8b2fab 50%, #e74f31 75%, #fa8f01 100%);*/
+}
+#menubar.menubar-inverse .nano-slider {
+	background: rgba(255, 255, 255, 0.4);
+}
+.menubar-visible .gui-controls small, .menubar-pin .gui-controls small {
+	color: rgba(12, 12, 12, 0.85);
+}
+.gui-controls > li ul > li > a:active, .gui-controls > li ul > li > a.active {
+	background-color: #ffffff;
+}
+.gui-controls > li ul > li > a:hover, .gui-controls > li ul > li > a:focus {
+	background-color: rgba(12, 12, 12, 0.07);
+}
+.gui-controls.nav > li > a:hover {
+	background: inherit;
+}
+.expanded-menu-item-markup .gui-controls > li:not(.gui-folder) > a:hover {
+	background-color: rgba(12, 12, 12, 0.07);
+}
+.expanded-menu-item-markup .gui-controls > li.active:not(.gui-folder) > a {
+	background-color: #ffffff;
+	-webkit-transition: background 0.3s linear;
+	-o-transition: background 0.3s linear;
+	transition: background 0.3s linear;
+}
+.menubar-visible .gui-controls > li:not(.gui-folder) > a:hover {
+	background-color: rgba(12, 12, 12, 0.07);
+}
+.menubar-visible .gui-controls > li.active:not(.gui-folder) > a {
+	background-color: #ffffff;
+	-webkit-transition: background 0.3s linear;
+	-o-transition: background 0.3s linear;
+	transition: background 0.3s linear;
+}
+.menubar-visible .menubar-inverse .gui-controls > li:not(.gui-folder) > a:hover {
+	background-color: #313942;
+}
+.menubar-visible .menubar-inverse .gui-controls > li.active:not(.gui-folder) > a {
+	background-color: #20252b;
+}
+.gui-controls > li ul > li > a:before {
+	/*border-bottom: 1px dashed rgba(12, 12, 12, 0.3);*/
+}
+.gui-controls li .title {
+	color: rgba(12, 12, 12, 0.85);
+}
+.gui-controls li > a:hover .title {
+	color: #0c0c0c;
+}
+.gui-controls li.active > a .title {
+	color: #0aa89e;
+}
+.gui-controls li.gui-folder > a .title {
+	color: rgba(12, 12, 12, 0.75);
+}
+.gui-controls li.gui-folder.expanded > a .title, .gui-controls li.gui-folder.active > a .title {
+	color: rgba(12, 12, 12, 0.85);
+}
+.gui-folder > a:after {
+	color: rgba(12, 12, 12, 0.5);
+}
+.gui-controls > .gui-folder.expanding > a:after, .gui-controls > .gui-folder.expanded > a:after {
+	color: rgba(12, 12, 12, 0.4);
+}
+.gui-icon {
+	color: #535858;
+}
+.gui-icon:hover {
+	background-color: rgba(12, 12, 12, 0.07);
+	color: #313534;
+}
+.gui-controls a.expanded .gui-icon, .gui-controls li.active .gui-icon, .gui-controls li.active .gui-icon:hover {
+	background-color: #ffffff;
+	border-color: #ffffff;
+	color: #0aa89e;
+}
+.gui-icon-active {
+	background-color: #ffffff;
+	border-color: #ffffff;
+	color: #0aa89e;
+}
+.expanded-menu-icon .gui-folder:hover:not(.active) .gui-icon {
+	background-color: rgba(12, 12, 12, 0.07);
+	color: #313534;
+}
+.expanded-menu-icon .gui-controls > li:not(.gui-folder) .gui-icon:hover {
+	background: inherit;
+}
+.expanded-menu-icon .gui-icon:hover {
+	background: inherit;
+}
+.menubar-visible .gui-folder:hover:not(.active) .gui-icon {
+	background-color: rgba(12, 12, 12, 0.07);
+	color: #313534;
+}
+.menubar-visible .gui-controls > li:not(.gui-folder) .gui-icon:hover {
+	background: inherit;
+}
+.menubar-visible .gui-icon:hover {
+	background: inherit;
+}
+.menubar-visible .menubar-inverse .gui-folder:hover:not(.active) .gui-icon {
+	background-color: rgba(255, 255, 255, 0.12);
+	color: #ffffff;
+}
+.menubar-visible .menubar-inverse .gui-controls > li:not(.gui-folder) .gui-icon:hover {
+	background: inherit;
+}
+.menubar-visible .menubar-inverse .gui-icon:hover {
+	background: inherit;
+}
+@-moz-keyframes blink {
+ 50% {
+ background-color: #ffffff;
+ border-color: #ffffff;
+ color: #0aa89e;
+}
+}
+@-webkit-keyframes blink {
+ 50% {
+ background-color: #ffffff;
+ border-color: #ffffff;
+ color: #0aa89e;
+}
+}
+@keyframes blink {
+ 50% {
+ background-color: #ffffff;
+ border-color: #ffffff;
+ color: #0aa89e;
+}
+}
+
+@media (min-width: 1200px) {
+.menubar-pin .gui-controls > li:not(.gui-folder) > a:hover {
+	background-color: rgba(12, 12, 12, 0.07);
+}
+.menubar-pin .gui-controls > li.active:not(.gui-folder) > a {
+	background-color: #ffffff;
+	-webkit-transition: background 0.3s linear;
+	-o-transition: background 0.3s linear;
+	transition: background 0.3s linear;
+}
+.menubar-pin .menubar-inverse .gui-controls > li:not(.gui-folder) > a:hover {
+	background-color: #313942;
+}
+.menubar-pin .menubar-inverse .gui-controls > li.active:not(.gui-folder) > a {
+	background-color: #20252b;
+}
+.menubar-pin .gui-folder:hover:not(.active) .gui-icon {
+	background-color: rgba(12, 12, 12, 0.07);
+	color: #313534;
+}
+.menubar-pin .gui-controls > li:not(.gui-folder) .gui-icon:hover {
+	background: inherit;
+}
+.menubar-pin .gui-icon:hover {
+	background: inherit;
+}
+.menubar-pin .menubar-inverse .gui-folder:hover:not(.active) .gui-icon {
+	background-color: rgba(255, 255, 255, 0.12);
+	color: #ffffff;
+}
+.menubar-pin .menubar-inverse .gui-controls > li:not(.gui-folder) .gui-icon:hover {
+	background: inherit;
+}
+.menubar-pin .menubar-inverse .gui-icon:hover {
+	background: inherit;
+}
+}
+.menubar-visible .menubar-inverse .gui-controls small, .menubar-pin .menubar-inverse .gui-controls small {
+	color: rgba(255, 255, 255, 0.55);
+}
+.menubar-inverse .gui-controls > li ul > li > a:active, .menubar-inverse .gui-controls > li ul > li > a.active {
+	background-color: rgba(96, 125, 133, 0.3);
+}
+.menubar-inverse .gui-controls > li ul > li > a:hover, .menubar-inverse .gui-controls > li ul > li > a:focus {
+	background-color: rgba(96, 125, 133, 0.3);
+}
+.expanded-menu-item-markup .menubar-inverse .gui-controls > li:not(.gui-folder) > a:hover {
+	background-color: #313942;
+}
+.expanded-menu-item-markup .menubar-inverse .gui-controls > li.active:not(.gui-folder) > a {
+	background-color: #ce617a;
+}
+.menubar-visible .gui-controls > li:not(.gui-folder) > a:hover {
+	background-color: rgba(12, 12, 12, 0.07);
+}
+.menubar-visible .gui-controls > li.active:not(.gui-folder) > a {
+	background-color: #ffffff;
+	-webkit-transition: background 0.3s linear;
+	-o-transition: background 0.3s linear;
+	transition: background 0.3s linear;
+}
+.menubar-visible .menubar-inverse .gui-controls > li:not(.gui-folder) > a:hover {
+	background-color: rgba(96, 125, 133, 0.3);
+}
+.menubar-visible .menubar-inverse .gui-controls > li.active:not(.gui-folder) > a {
+	background-color: rgba(96, 125, 133, 0.3);
+}
+.menubar-inverse .gui-controls > li ul > li:before {
+	border-left: 1px solid rgb(255, 255, 255);
+}
+.menubar-inverse .gui-controls > li ul > li > a:before {
+	color: #FFF;
+	content: "\f111";
+	font-family: "Font Awesome\ 5 Free";
+	font-weight: 600;
+	font-size: 10px;
+}
+.menubar-inverse .gui-controls li .title {
+	color: rgb(255, 255, 255);
+	text-shadow: 0 1px 2px #000000;
+}
+.menubar-inverse .gui-controls li > a:hover .title {
+	color: #ffffff;
+}
+.menubar-inverse .gui-controls li.active > a .title {
+	color: #ffffff;
+}
+.menubar-inverse .gui-controls li.gui-folder > a .title {
+	color: rgba(255, 255, 255, 0.5);
+}
+.menubar-inverse .gui-controls li.gui-folder.expanded > a .title, .menubar-inverse .gui-controls li.gui-folder.active > a .title {
+	color: rgba(255, 255, 255, 0.55);
+}
+.menubar-inverse .gui-folder > a:after {
+	color: rgba(255, 255, 255, 0.5);
+}
+.menubar-inverse .gui-controls > .gui-folder.expanding > a:after, .menubar-inverse .gui-controls > .gui-folder.expanded > a:after {
+	color: rgba(255, 255, 255, 0.4);
+}
+.menubar-inverse .gui-icon {
+	color: #fff;
+}
+
+.menubar-inverse .gui-icon span{
+	display:block;
+}
+
+.menubar-inverse .gui-icon:hover {
+	background-color: rgba(255, 255, 255, 0.12);
+	color: #ffffff;
+}
+.menubar-inverse .gui-controls a.expanded .gui-icon, .menubar-inverse .gui-controls li.active .gui-icon, .menubar-inverse .gui-controls li.active .gui-icon:hover {
+	background-color: #ffffff;
+	border-color: #ffffff;
+	color: #0aa89e;
+}
+.menubar-inverse .gui-icon-active {
+	background-color: #0aa89e;
+	border-color: #ffffff;
+	color: #ffffff;
+}
+.expanded-menu-icon .menubar-inverse .gui-folder:hover:not(.active) .gui-icon {
+	background-color: rgba(255, 255, 255, 0.12);
+	color: #ffffff;
+}
+.expanded-menu-icon .menubar-inverse .gui-controls > li:not(.gui-folder) .gui-icon:hover {
+	background: inherit;
+}
+.expanded-menu-icon .menubar-inverse .gui-icon:hover {
+	background: inherit;
+}
+.menubar-visible .gui-folder:hover:not(.active) .gui-icon {
+	background-color: rgba(12, 12, 12, 0.07);
+	color: #313534;
+}
+.menubar-visible .gui-controls > li:not(.gui-folder) .gui-icon:hover {
+	background: inherit;
+}
+.menubar-visible .gui-icon:hover {
+	background: inherit;
+}
+.menubar-visible .menubar-inverse .gui-folder:hover:not(.active) .gui-icon {
+	background-color: rgba(255, 255, 255, 0.12);
+	color: #ffffff;
+}
+.menubar-visible .menubar-inverse .gui-controls > li:not(.gui-folder) .gui-icon:hover {
+	background: inherit;
+}
+.menubar-visible .menubar-inverse .gui-icon:hover {
+	background: inherit;
+}
+
+@media (min-width: 1200px) {
+.menubar-pin .gui-controls > li:not(.gui-folder) > a:hover {
+	background-color: rgba(12, 12, 12, 0.07);
+}
+.menubar-pin .gui-controls > li.active:not(.gui-folder) > a {
+	background-color: #ffffff;
+	-webkit-transition: background 0.3s linear;
+	-o-transition: background 0.3s linear;
+	transition: background 0.3s linear;
+}
+.menubar-pin .menubar-inverse .gui-controls > li:not(.gui-folder) > a:hover {
+	background-color: #313942;
+}
+.menubar-pin .menubar-inverse .gui-controls > li.active:not(.gui-folder) > a {
+	background-color: #20252b;
+}
+.menubar-pin .gui-folder:hover:not(.active) .gui-icon {
+	background-color: rgba(12, 12, 12, 0.07);
+	color: #313534;
+}
+.menubar-pin .gui-controls > li:not(.gui-folder) .gui-icon:hover {
+	background: inherit;
+}
+.menubar-pin .gui-icon:hover {
+	background: inherit;
+}
+.menubar-pin .menubar-inverse .gui-folder:hover:not(.active) .gui-icon {
+	background-color: rgba(255, 255, 255, 0.12);
+	color: #ffffff;
+}
+.menubar-pin .menubar-inverse .gui-controls > li:not(.gui-folder) .gui-icon:hover {
+	background: inherit;
+}
+.menubar-pin .menubar-inverse .gui-icon:hover {
+	background: inherit;
+}
+}
+
+@media (max-width: 768px) {
+.header-fixed #header:before {
+	-webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);
+	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);
+}
+.headerbar-left {
+	/*background: #ffffff;*/
+	border-bottom: 1px solid #e5e6e6;
+}
+.headerbar-right {
+	background: #ffffff;
+	-webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);
+	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);
+}
+}
+.text-blue {
+	color: #085bb9;
+}
+
+.datepicker table tr td.today{
+	color: #fff !important;
+    background-color: #747474 !important;
+    border-color: #747474 !important;
+}
+
+.datepicker table tr td.active.active, .datepicker table tr td.active.highlighted.active, .datepicker table tr td.active.highlighted:active, .datepicker table tr td.active:active{
+	color: #fff;
+    background-color: #3c3c3c !important
+	;
+    border-color: #3c3c3c !important;
+}

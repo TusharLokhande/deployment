@@ -1,0 +1,5 @@
+/* Custom styles
+-------------------------------------------------- */
+.field-validation-error,.Error-Validation{
+    color:#ff6262;
+  }

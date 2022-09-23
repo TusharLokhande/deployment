@@ -1,0 +1,106 @@
+.login-form {
+	/*background:rgba(66, 66, 66, 0.7);*/
+	background:rgba(0, 0, 0, 0.6);
+}
+h3 span.ul {
+	color: #ffffff;
+}
+.welcome-login{
+	color: #fff;
+}
+.border-left {
+   border-left: 1px solid #909090 !important;
+}
+.main input[type="text"], .main input[type="password"], .main input[type="email"] {
+	border: 1px solid #fff;
+	background-color: #fff;
+}
+.lables {
+    color: #f0f0f0;
+}
+.main form i {
+	color: #000;
+}
+.main form p a {
+	color: #888;
+}
+form p a:hover {
+	color:#21A957;
+}
+input[type="text"], input[type="password"], input[type="email"] {
+	background: #ffffff;
+	color: #676767;
+	border: none;
+	border: 1px solid #DED6D6;
+}
+input[type="text"]:hover, input[type="password"]:hover, input[type="email"]:hover {
+	border: 1px solid #949494;
+}
+.left-section {
+	padding:125px 0px;
+}
+.login-form .nav {
+	border:none;
+}
+.login-form a.active, .login-form a.active:hover, .login-form a.active:focus {
+	background: SAPrimaryColor;
+	border-color: SAPrimaryColor;
+	color: #fff;
+}
+.forgot-pass {
+    color: #fff;
+    border-bottom: 1px solid #fff;
+}
+.forgot-pass:hover { color:#fff;}
+#login-modal-popup .modal-content,#resetPass-modal-popup .modal-content, #setPass-modal-popup .modal-content,#reqPass-modal-popup .modal-content,#report-correct-number .modal-content { border:3px solid #e65828;}
+#login-modal-popup .modal-header,#resetPass-modal-popup .modal-header,#setPass-modal-popup .modal-header,#reqPass-modal-popup .modal-header, #report-correct-number .modal-header {
+	background: #ffd4c6;
+    color: #000;
+}
+.phone_verify h3, .set_pass h3, .req_pass h3,.auth h3 {
+	color: #fff;
+}
+.phone_verify .in_num {
+	color: #fff;
+}
+.phone_verify .sec_warning {
+	color: red;
+}
+.sec_left p {
+    color: #fff;
+}
+.sec_left a {
+    color: #000;
+    background: #ddd;
+}
+.user_text p {
+    color: #fff;
+}
+.user_text span.user_available {
+	background: green;
+    color: #fff;
+}
+.user_text span.not_available {
+	background: red;
+    color: #fff;
+}
+.user_text span i {
+	color: #fff;
+}
+.s_text {
+	color: #fff;
+}
+.auth_text span a {
+	color: #fff;
+}
+sup {color:red;}
+.btn-primary {
+	color: #fff;
+    background-color: SAPrimaryColor !important;
+    border-color: SAPrimaryColor !important;
+}
+
+.main input[disabled] {
+	background: #bbb;
+	border:1px solid #bbb;
+}

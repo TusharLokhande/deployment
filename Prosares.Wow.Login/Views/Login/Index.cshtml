@@ -1,0 +1,335 @@
+﻿@*@using SureAlly.Core.Enum;*@
+
+@{
+    Layout = "_Layout";
+
+    ViewData["Title"] = "Login Page";
+    int SignUpOption = 2;
+    var ShowRequestPassword = ((ViewBag.ShowRequestPassword ?? false).ToString().ToLower());
+    var ShowResetPassword = ((ViewBag.ShowResetPassword ?? false).ToString().ToLower());
+    bool ShowPhoneVerfication = ViewBag.ShowPhoneVerfication != null ? ViewBag.ShowPhoneVerfication : false;
+    bool ShowSetPassword = ViewBag.ShowSetPassword != null ? ViewBag.ShowSetPassword : false;
+    string SetPasswordUID = ViewBag.ShowSetPasswordUID != null ? Convert.ToString(ViewBag.ShowSetPasswordUID) : string.Empty;
+    //bool ShowPhoneAuthentication = ViewBag.ShowPhoneAuthentication != null ? ViewBag.ShowPhoneAuthentication : false;
+}
+
+
+<div class="container-fluid">
+    <div class="row">
+
+        @*if (Tenant.ThemeConfig.HeaderType == "Horizontal")
+               <!-- IF client logo and portal name has to be in single line -->
+            <div class="col-lg-12 logo_section2">
+                   <div class="row">
+                       <div class="col-lg-6 text-center">
+                           <img class="logoimage" src="~/images/logo.png">
+                       </div>
+                       <div class="col-lg-6 text-center">
+                           <h3><span class="ul">WOW Portal</span></h3>
+                       </div>
+                   </div>
+               </div>
+        *@
+
+
+
+
+        <!-- IF client logo and portal name has to be 2 lines -->
+        <div class="col-lg-12 logo_section1">
+            <div class="row">
+                <div class="text-center w-100">
+
+                    <img class="logoimage" src="~/images/logo.png">
+                </div>
+
+                <div class="text-center w-100 text-white">
+                    <h3><span class="ul">WOW Portal</span></h3>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="center-container">
+        <div class="row justify-content-center">
+            @*    <div class="col-lg-6 col-md-12 col-sm-12">
+                    <div class="left-section">
+                        <h2 class="welcome-login">Tenant.ThemeConfig.LoginPageTitle</h2>
+
+
+                         <p class="text-white">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
+                            printer took a galley of type and scrambled it to make a type specimen book. It has survived not
+                            only five centuries, but also the leap into electronic typesetting, remaining essentially
+                            unchanged</p>
+                            <p class="text-white">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
+                            printer took a galley of type and scrambled it to make a type specimen book. It has survived not
+                            only five centuries, but also the leap into electronic typesetting, remaining essentially
+                            unchanged</p>
+
+                            <button type="button" class="btn btn-primary mt-3">Read More </button>
+                    </div>
+                </div>*@
+            <div class="col-lg-6 col-md-12 col-sm-12">
+                <div class="main">
+                    <div class="login-form clearfix">
+                        <div class="col-lg-12">
+                            <div class="head">
+                                <div class="img-wrapper text-white">
+                                    <i class="fas fa-unlock-alt"></i>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <ul class="nav nav-pills" id="tabs_sec">
+                                @{
+
+                                    <li style="margin: 0px auto;">
+                                        <a data-toggle="pill" class="active"
+                                           href="#login">Login</a>
+                                    </li>
+
+                                }
+
+                            </ul>
+
+                            <div class="tab-content">
+                                <div id="login" class="tab-pane fade show active">
+                                    <form id="loginform" onsubmit="return false">
+                                        <label class="lables text-white" for="usernamme">Your Email Id</label>
+
+                                        <i class="fas fa-user"></i>
+                                        <input id="lgn-usrnm" type="text" class="text" name="username" prefix="USERNAME" data-val="true" data-val-required="Enter Email">
+                                        <span id="lgn-usvalid" class="alert alert-warning p-1" style="display:none;">Email Invalid</span>
+
+                                        <label class="lables text-white" for="password">Password</label>
+                                        <div id="show_hide_password">
+                                            <a href=""> <i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                            <input id="lgn-pwd" type="password" name="password" value="" data-val="true" data-val-required="Enter Password">
+                                            <span id="lgn-valid" class="alert alert-warning p-1" style="display:none;">
+                                                Password Invalid
+                                            </span>
+                                        </div>
+                                        <div class="submit">
+                                            <button id="lgn-sbmt" type="submit" class="btn btn-primary" onclick="Login.Authenticate()">Login</button>
+                                        </div>
+                                        <div class="text-center mt-2">
+                                                <a href="/ResetPassword/Index" class="forgot-pass text-white">Forgot Password?</a>
+                                            </div>
+                                    </form>
+                                </div>
+                                <div id="signup" class="tab-pane fade">
+
+                                </div>
+                                <div id="phone_verification" class="phone_verify">
+                                    @if (ShowPhoneVerfication)
+                                    {
+                                        @Html.Partial("_PhoneVerification", ViewData["phoneVerificationViewModel"])
+                                    }
+                                </div>
+                                <div id="set_password" class="set_pass">
+
+                                </div>
+                                <div id="reset_password" class="set_pass">
+                                    @if (@ShowResetPassword == "true")
+                                    {
+
+                                        @Html.Partial("_ResetPassword", @ViewData["ResetPasswordModel"]);
+
+
+                                    }
+                                </div>
+                                @*                                <div id="authentication" class="auth">
+                                        <form id="twofac-auth-form">
+                                            <h3>Authentication</h3>
+                                            <div class="row mt-2">
+                                                <div class="col-md-12 auth_text mb-3">
+                                                    <span style="color:red;">A security key was sent to your phone <span id="auth-phone-text">+91 XXXXX X1234.</span></span>
+                                                    <span style="color:red;">
+                                                        This key is valid for 180 seconds.
+                                                        <a href="javascript:void(0);">Resend Security Key</a>
+                                                    </span>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <label class="lables" for="">Enter Security Key <sup>*</sup></label>
+                                                    <div class="col-lg-12 p-0" id="show_hide_password">
+                                                        <a href=""> <i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                                                        <input id="auth-txtotp" type="password" name="password" data-val="true" data-val-required="Enter OTP received on your phone">
+                                                        <span id="twofac-wron-otp">Enter OTP is wrong. Enter correct OTP</span>
+                                                    </div>
+                                                    <div class="sec_left">
+                                                        <p><span id="twofac-sectime">180</span> seconds left..</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="submit float-right">
+                                                        <button id="twofac-auth-submit" type="button" class="btn btn-primary" onclick="Login.CheckOTP()">Submit</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>*@
+                                <div id="req_password" class="req_pass">
+                                    @if (@ShowRequestPassword == "true")
+                                    {
+                                        @Html.Partial("_RequestPassword");
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="chat-windows"></div>
+
+<!--email verification link message modal goes here-->
+<div class="modal fade" id="login-modal-popup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">
+                    <p>Your details are saved. Kindly check your email for verification Link</p>
+                </h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--email verification link message modal ends here-->
+<!--report correct number modal goes here-->
+<div class="modal fade" id="report-correct-number" tabindex="-1" role="dialog" aria-labelledby="report-correct-number-title">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title"><p>Report Correct Number</p></h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <form id="rcn-form">
+                    <p class="rcn-info-text">
+                        Kindly enter the correct number.The concerned person will send you a fresh invite after updating the
+                        phone number
+                    </p>
+                    <div class="row mt-3">
+                        <div class="col-md-3 pr-0">
+                            <select id="rcn-drpCountryCode" class="form-control" data-val="true" data-val-required="Country Code is required.">
+                            </select>
+                        </div>
+                        <div class="col-md-9">
+                            <input id="rcn-txtMobileNo" type="text" name="mobile" placeholder="Enter Your Mobile Number" data-val="true" data-val-regex="Entered Mobile No is not valid." data-val-regex-pattern="^[789]\d{9}$" data-val-required="The PhoneNumber field is required.">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button id="rcn-sbmt" type="button" class="btn btn-primary" onclick="PhoneVerfication.UpdatePhoneNumber()">Submit</button>
+                <button id="rcn-cncl" type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--report correct number modal ends here-->
+@*<script src="https://www.google.com/recaptcha/api.js?render=6LfPs7gcAAAAAJi-IP-zSliwlcZ7WBReW6nX2GRU"></script>*@
+<script src="~/js/Custom/Login/Login.js"></script>
+<script>
+    $(document).ready(function () {
+
+//hide all divs
+ $("#phone_verification, #set_password,#req_password,#reset_password, #authentication").hide();
+
+
+           //show request password screen
+            if (@ShowRequestPassword)  {
+
+                $("#tabs_sec, #login, #signup").hide();
+                $("#req_password").show();
+            }
+
+      //show reset password screen
+          if (@ShowResetPassword)
+         {
+
+            $("#tabs_sec, #login, #signup").hide();
+            $("#reset_password").show();
+        }
+
+
+
+        $("#show_hide_password a").on('click', function (event) {
+            event.preventDefault();
+            if ($('#show_hide_password input').attr("type") == "text") {
+                $('#show_hide_password input').attr('type', 'password');
+                $('#show_hide_password i').addClass("fa-eye-slash");
+                $('#show_hide_password i').removeClass("fa-eye");
+            } else if ($('#show_hide_password input').attr("type") == "password") {
+                $('#show_hide_password input').attr('type', 'text');
+                $('#show_hide_password i').removeClass("fa-eye-slash");
+                $('#show_hide_password i').addClass("fa-eye");
+            }
+        });
+
+
+        $("#pv_submit").on("click", function () {
+            $("#report-correct-number").modal("hide");
+            $("#tabs_sec, #login, #signup").hide();
+            $("#phone_verification").show();
+        });
+        $(".forgot-pass").on("click", function () {
+            //$("#tabs_sec, #login, #signup").hide();
+            //$("#req_password").show();
+            //objCommon.CallPartial('/Login/RequestPassword', '#req_password');
+
+        });
+
+        $("#set_pass").on("click", function () {
+            $("#tabs_sec, #login, #signup, #set_password").hide();
+            $("#authentication").show();
+        });
+
+
+
+
+        $('a[data-toggle="pill"]').on('shown.bs.tab', function (e) {
+            var target = $(e.target).attr("href");
+            if (target == "#signup") {
+                CallSignUpPartial();
+            }
+        });
+
+            @if (ShowPhoneVerfication)
+            {
+                <text>$("#report-correct-number").modal("hide");
+                    $("#tabs_sec, #login, #signup").hide();
+                    $("#phone_verification").show(); </text>
+            }
+
+        @if (ShowSetPassword) {
+            <text>ShowSetPassword();</Text>
+        }
+    });
+
+
+
+    function CallSignUpPartial() {
+        var divID = "#signup";
+        $(divID).html("");
+        var url;
+        url = '/Login/SignUp';
+        var jqxhr = $.get(url)
+            .done(function (data) {
+                $(divID).html(data);
+                //$(divID).modal('show');
+            });
+    }
+
+    function ShowSetPassword() {
+        $("#tabs_sec, #login, #signup").hide();
+        $("#set_password").show();
+        objCommon.CallPartial('/Login/SetPassword?UniqueId=' + '@SetPasswordUID', '#set_password');
+    }
+</script>

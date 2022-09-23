@@ -1,0 +1,18 @@
+.head .img-wrapper {
+    background-color: SASecondaryColor;
+	color: #FFF;
+}
+.btn-secondary {
+    color: #fff;
+    background-color: SASecondaryColor !important;
+    border-color: SASecondaryColor !important;
+}
+.login-form li a {
+	/*background: #00305e;*/
+	background: SASecondaryColor;
+    color: #fff;
+}
+.login-form li a:focus, .login-form li a:hover { 
+	background: SASecondaryColor;
+	border-color:transparent;
+}
