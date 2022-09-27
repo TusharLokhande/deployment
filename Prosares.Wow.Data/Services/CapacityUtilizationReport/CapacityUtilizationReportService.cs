@@ -231,13 +231,17 @@ namespace Prosares.Wow.Data.Services.CapacityUtilizationReport
 
         public dynamic Getallengagementtype()
         {
-            var data = from x in _EngageTypeOption.Table select new { Id = x.EngagementTypeId, Name = x.EngagementType };
+       
+            var data = from x in _EngageTypeOption.Table
+                       
+                       select new { Id = x.EngagementTypeId, Name = x.EngagementType };
             return data;
         }
 
         public dynamic Getallengagement()
         {
-            var data = from x in _EngagementMaster.Table select new { Id = x.Id, Name = x.Engagement };
+
+            var data = from x in _EngagementMaster.Table select new { Name = x.Engagement, Id = x.Id };
             return data;
         }
     }

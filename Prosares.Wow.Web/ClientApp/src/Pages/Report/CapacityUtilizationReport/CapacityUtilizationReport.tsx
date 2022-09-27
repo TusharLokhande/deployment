@@ -95,10 +95,10 @@ const CapacityUtilizationReport = () => {
     let options = [];
 
     data.map((item, index) => {
-      options.push({ value: item.name, label: item.name, id: item.id });
+      options.push({ value: item.id, label: item.name, id: item.id });
     });
 
-    options.sort((a, b) => a.value.localeCompare(b.value));
+    options.sort((a, b) => a.label.localeCompare(b.label));
 
     setCustomerOptions(options);
   };
@@ -182,7 +182,7 @@ const CapacityUtilizationReport = () => {
       } else {
         setFormErrors((preState) => ({
           ...preState,
-          ["master_Empty"]: "Please select master type.",
+          ["master_Empty"]: "Please select report type.",
         }));
       }
       // let customers = ConvertArrayToString(customerSelectData);
@@ -236,7 +236,7 @@ const CapacityUtilizationReport = () => {
     }
 
     if (masterType.id === 0) {
-      objError["master_Empty"] = "Please select master type.";
+      objError["master_Empty"] = "Please select report type.";
     }
     formErrorObj = objError;
     setFormErrors(objError);
@@ -313,6 +313,8 @@ const CapacityUtilizationReport = () => {
         label: "Select Master Type",
         id: 0,
       });
+      setRequestObject([{ count: 0 }]);
+      setCount(0);
     }
   };
 
@@ -631,8 +633,10 @@ const CapacityUtilizationReport = () => {
                       )}
                     />
                   </LocalizationProvider>
+                  <p style={{ color: "red" }}>
+                    {formErrors["fromDate_isEmpty"]}
+                  </p>
                 </div>
-                <p style={{ color: "red" }}>{formErrors["fromDate_isEmpty"]}</p>
               </div>
 
               <div className="col-lg-4 col-md-4 col-sm-6">

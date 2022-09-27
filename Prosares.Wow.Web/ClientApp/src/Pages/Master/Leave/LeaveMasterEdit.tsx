@@ -725,6 +725,9 @@ const LeaveRequestMasterEdit = () => {
 
         if (day.day() == 6 && day.date() / 7 >= 2 && day.date() / 7 <= 3)
           businessDays++;
+
+        if (day.day() == 6 && day.date() / 7 >= 4 && day.date() / 7 <= 5)
+          businessDays++;
         day.add(1, "d");
       }
       return businessDays;
