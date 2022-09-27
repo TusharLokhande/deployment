@@ -38,6 +38,7 @@ const MilestoneReport = () => {
   const [count, setCount] = useState(0);
   const [formErrors, setFormErrors] = useState({});
   const { showLoader, hideLoader } = useContext(LoaderContext);
+  const [reset, setReset] = useState(false);
 
   useEffect(() => {
     GetCustomerData();
@@ -52,7 +53,7 @@ const MilestoneReport = () => {
           ? null
           : moment(fromDate).format(moment.HTML5_FMT.DATE),
       ToDate:
-        toDate === null ? null : moment(fromDate).format(moment.HTML5_FMT.DATE),
+        toDate === null ? null : moment(toDate).format(moment.HTML5_FMT.DATE),
       sortColumn,
       sortOrder: sortDirection,
       searchText,
@@ -76,7 +77,7 @@ const MilestoneReport = () => {
           ? null
           : moment(fromDate).format(moment.HTML5_FMT.DATE),
       ToDate:
-        toDate === null ? null : moment(fromDate).format(moment.HTML5_FMT.DATE),
+        toDate === null ? null : moment(toDate).format(moment.HTML5_FMT.DATE),
       sortColumn,
       SortOrder: sortDirection,
       searchText,
@@ -85,7 +86,7 @@ const MilestoneReport = () => {
       count,
     };
     GetGridData(obj);
-  }, [sortDirection, sortColumn, searchText, start, pageSize]);
+  }, [sortDirection, sortColumn, searchText, start, pageSize, reset]);
 
   const GetEngagementTypeData = async () => {
     let { data } = await APICall(
@@ -121,13 +122,13 @@ const MilestoneReport = () => {
 
   const GetGridData = async (obj) => {
     showLoader();
-    console.log(obj);
+
     const { data } = await APICall(getMileReportData, "POST", obj);
     let arr = [];
     arr = [...data];
 
     setGridData(data);
-    console.log(data);
+
     if (arr.length > 0) {
       setCount(arr[0].totalCount);
     }
@@ -186,7 +187,7 @@ const MilestoneReport = () => {
           ? null
           : moment(fromDate).format(moment.HTML5_FMT.DATE),
       ToDate:
-        toDate === null ? null : moment(fromDate).format(moment.HTML5_FMT.DATE),
+        toDate === null ? null : moment(toDate).format(moment.HTML5_FMT.DATE),
       sortColumn,
       sortOrder: sortDirection,
       searchText,
@@ -203,6 +204,11 @@ const MilestoneReport = () => {
     }
 
     if (api === "reset") {
+      setFromDate(null);
+      setToDate(null);
+      setCustomerSelectData([]);
+      setEngagementTypeSelectedData([]);
+      setReset(!reset);
     }
   };
 
@@ -223,7 +229,7 @@ const MilestoneReport = () => {
           ? null
           : moment(fromDate).format(moment.HTML5_FMT.DATE),
       ToDate:
-        toDate === null ? null : moment(fromDate).format(moment.HTML5_FMT.DATE),
+        toDate === null ? null : moment(toDate).format(moment.HTML5_FMT.DATE),
       sortColumn,
       sortOrder: sortDirection,
       searchText,
@@ -231,8 +237,6 @@ const MilestoneReport = () => {
       start,
       count,
     };
-
-    console.log(obj);
 
     axios
       .request({
@@ -443,7 +447,7 @@ const MilestoneReport = () => {
               <p style={{ color: "red" }}>{formErrors["toDate_isEmpty"]}</p>
             </div>
 
-            <div className="col-lg-2 col-md-4 col-sm-6 align-self-center">
+            <div className="col-lg-2 col-md-4 col-sm-6 align-self-start">
               <div
                 style={{ marginTop: "20px" }}
                 className="d-flex justify-content-end gap-2"

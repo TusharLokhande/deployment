@@ -345,7 +345,7 @@ namespace Prosares.Wow.Data.Services.LeaveRequest
         {
             Entities.LeaveRequestsMaster data = new Entities.LeaveRequestsMaster();
 
-            if (value.FromDate == DateTime.Now)
+            if (value.FromDate == DateTime.Now.Date)
             {
                 value.IsPlanned = false;
             }

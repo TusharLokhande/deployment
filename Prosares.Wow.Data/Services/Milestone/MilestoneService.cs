@@ -204,6 +204,19 @@ namespace Prosares.Wow.Data.Services.Milestone
             return data;
         }
 
+        public dynamic MilestoneExportToExcel(MileStone value)
+        {
+            SqlCommand command = new SqlCommand("stpMileStoneForExportToExcel");
+            command.CommandType = System.Data.CommandType.StoredProcedure;
+            command.Parameters.Add("@searchText", SqlDbType.VarChar).Value = value.searchText;
+            command.Parameters.Add("@sortColumn", SqlDbType.VarChar).Value = value.sortColumn;
+            command.Parameters.Add("@sortDirection", SqlDbType.VarChar).Value = value.sortDirection;
+            var x = _milestone.GetRecords(command).ToList();
+
+            var data = x.Where(k => k.RevisedDate >= value.fromDate && k.RevisedDate <= value.toDate).ToList();
+            return data;
+        }
+
 
         #endregion
         public class MilestoneResponse

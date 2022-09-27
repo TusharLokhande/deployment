@@ -33,7 +33,7 @@ const CapacityUtilizationReport = () => {
   );
   const [masterType, setMasterType] = useState({
     value: "",
-    label: "Select Master Type",
+    label: "Select Report Type",
     id: 0,
   });
   const [requestObject, setRequestObject] = useState([{ count: 0 }]);
@@ -583,6 +583,23 @@ const CapacityUtilizationReport = () => {
 
               <div className="col-lg-4 col-md-4 col-sm-6">
                 <div className="form-group">
+                  <label>Select EngagementType</label>
+                  <SelectForm
+                    value={engagementTypeSelectedData}
+                    onChange={(e) => SelectOnChange(e, "engagementType")}
+                    options={engagementTypeOptions}
+                    isMulti
+                    isSearchable={false}
+                    isClearable={true}
+                    closeMenuOnSelect={false}
+                    hideSelectedOptions={false}
+                    placeholder="Select Engagement"
+                  />
+                </div>
+              </div>
+
+              <div className="col-lg-4 col-md-4 col-sm-6">
+                <div className="form-group">
                   <label>Select Engagement</label>
                   <SelectForm
                     value={engagementSelectedData}
@@ -620,23 +637,6 @@ const CapacityUtilizationReport = () => {
 
               <div className="col-lg-4 col-md-4 col-sm-6">
                 <div className="form-group">
-                  <label>Select EngagementType</label>
-                  <SelectForm
-                    value={engagementTypeSelectedData}
-                    onChange={(e) => SelectOnChange(e, "engagementType")}
-                    options={engagementTypeOptions}
-                    isMulti
-                    isSearchable={false}
-                    isClearable={true}
-                    closeMenuOnSelect={false}
-                    hideSelectedOptions={false}
-                    placeholder="Select Engagement"
-                  />
-                </div>
-              </div>
-
-              <div className="col-lg-4 col-md-4 col-sm-6">
-                <div className="form-group">
                   <label className="d-block">
                     To Date <sup>*</sup>
                   </label>
@@ -658,12 +658,12 @@ const CapacityUtilizationReport = () => {
 
               <div className="col-lg-4 col-md-4 col-sm-6">
                 <label>
-                  Select Type <sup style={{ color: "red" }}>*</sup>
+                  Select Report Type <sup style={{ color: "red" }}>*</sup>
                 </label>
                 <SelectForm
                   key={1}
                   options={masterTypeOptions}
-                  placeholder="Select Type"
+                  placeholder="Select Report"
                   isDisabled={false}
                   value={masterType}
                   onChange={(e) => SelectOnChange(e, "masterType")}

@@ -71,13 +71,13 @@ namespace Prosares.Wow.Data.Services.MilestoneReport
 
             MilestoneReportResponse obj = new MilestoneReportResponse();
             obj.data = list;
-
-
             return list;
         }
 
         #endregion
     }
+
+
 
     public class MilestoneReportResponse {
 

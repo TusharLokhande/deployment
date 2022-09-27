@@ -83,7 +83,6 @@ const LeaveRequestMasterEdit = () => {
     );
 
     hideLoader();
-    // console.log(data, status);
 
     if (data && data > 0 && status === 0) {
       navigate(`${env}/master/leaveRequest`);
@@ -117,8 +116,6 @@ const LeaveRequestMasterEdit = () => {
       };
       const { data } = await APICall(getLeaveRequestDataById, "POST", post);
       if (data !== null || typeof data !== "string") {
-        // console.log(data);
-
         setSubmitId(data[0].id);
         // setApprover({ value: data[0].approverId, label: data[0].approver });
         approverId.current = data[0].approverId;
@@ -516,7 +513,7 @@ const LeaveRequestMasterEdit = () => {
           Id: submitId,
           RequestStatus: leaveStatus,
         };
-        // console.log(submitObj);
+
         await submitApiCall(submitObj);
       } else {
         submitObj = {
@@ -535,8 +532,6 @@ const LeaveRequestMasterEdit = () => {
           IsActive: true,
           CreatedBy: Number(EmployeeId),
         };
-
-        // console.log(submitObj);
 
         //check if leaves for same day;
         let isSameDayLeavePending = false;
@@ -691,7 +686,6 @@ const LeaveRequestMasterEdit = () => {
       if (data && data.length > 0) {
         let temp = [...data];
         temp = temp.filter((x) => x !== null);
-        // console.log(temp);
         setWorkdayList(temp);
       }
     })();
@@ -721,16 +715,27 @@ const LeaveRequestMasterEdit = () => {
       var day = moment(start);
       var businessDays = 0;
       while (day.isSameOrBefore(end, "day")) {
-        if (day.day() != 0) businessDays++;
+        if (day.day() == 1) businessDays++;
+        if (day.day() == 2) businessDays++;
+        if (day.day() == 3) businessDays++;
+        if (day.day() == 4) businessDays++;
+        if (day.day() == 5) businessDays++;
+        if (day.day() == 6 && day.date() / 7 >= 0 && day.date() / 7 <= 1)
+          businessDays++;
+
+        if (day.day() == 6 && day.date() / 7 >= 2 && day.date() / 7 <= 3)
+          businessDays++;
         day.add(1, "d");
       }
       return businessDays;
     }
+
     if (workdayList.includes("Saturday")) {
       leaveDays = workday_count_sat(FromDate, ToDate);
     } else {
       leaveDays = workday_count(FromDate, ToDate);
     }
+
     if (!isNaN(leaveDays)) {
       //half day condition
       if (fromDateLeaveType.value === 2 || fromDateLeaveType.value === 3) {

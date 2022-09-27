@@ -516,6 +516,7 @@ const CapacityAllocation = (props: any) => {
       setAllocatedResourcesPerMonth("");
       setIsEngagementLead(false);
       setTotalResourceAllocation("");
+      setTotalMandaysAllocated("");
       setFractionAllocated("");
       setResourceAllocated({});
       setFromDate(firstDay);

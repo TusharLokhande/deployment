@@ -4,6 +4,7 @@ import { TaskListArrayData } from "../../Helpers/json/TaskListData";
 import {
   getDashboardData,
   GetDropDownList,
+  getWorkPolicyWorkdayList,
 } from "../../Helpers/API/APIEndPoints";
 import { APICall } from "../../Helpers/API/APICalls";
 import Accordian2 from "./Accordian/Accordian2";
@@ -15,13 +16,15 @@ import Bubble from "../../Layout/Bubble/Bubble";
 function Homescreen() {
   const [dashboardData, setDashboardData] = useState([]);
   const [futureDates, setFutureDates] = useState([]);
+  const [totalReportedHours, settotalReportedHours] = useState(0);
+  const [workdayList, setWorkdayList] = useState([]);
   const [taskStatusDropdown, setTaskStatusDropdown] = useState([]);
   const [ticketStatusDropdown, setTicketStatusDropdown] = useState([]);
   const [natureOfIssueDropdown, setNatureOfIssueDropdown] = useState([]);
   const [totalReportedHoursToday, setTotalReportedHoursToday] = useState(0);
-  const { EmployeeId } = getContext();
+  const [checkWeekend, setCheckWeekend] = useState(false);
   const { showLoader, hideLoader } = useContext(LoaderContext);
-
+  const { EmployeeId, EmployeeWorkPolicyId, RoleId } = getContext();
   //group by func
   function groupArrayOfObjects(list, key) {
     return list.reduce(function(rv, x) {
@@ -64,7 +67,17 @@ function Homescreen() {
         }
       }
     })();
-
+    (async () => {
+      const { data } = await APICall(getWorkPolicyWorkdayList, "POST", {
+        workPolicyId: Number(EmployeeWorkPolicyId),
+      });
+      if (data && data.length > 0) {
+        let temp = [...data];
+        temp = temp.filter((x) => x !== null);
+        // console.log(temp);
+        setWorkdayList(temp);
+      }
+    })();
     (async () => {
       const { data } = await APICall(GetDropDownList, "post", {
         searchFor: "status",
@@ -195,17 +208,6 @@ function Homescreen() {
       })();
   }, [ticketStatusDropdown, taskStatusDropdown, natureOfIssueDropdown]);
 
-  useEffect(() => {
-    if (dashboardData.length > 0) {
-      setTotalReportedHoursToday(
-        dashboardData.reduce(
-          (sum, data) => (sum = sum + data.todayHoursSpent),
-          0
-        )
-      );
-    }
-  }, [dashboardData]);
-
   return (
     <>
       <div className="container-fluid">
@@ -227,8 +229,8 @@ function Homescreen() {
                 <span>Total Reported hours</span>
                 <span className="float-right">
                   {/* {dashboardData.map((data) => data.hoursSpent)} */}
-                  {totalReportedHoursToday}
-                  /8.5H
+                  {totalReportedHoursToday}/
+                  {workdayList.includes("Saturday") ? 8.0 : 8.5}
                   {/* {dashboardData.reduce(
                     (sum, data) => (sum = sum + data.hoursAssigned),
                     0
@@ -281,7 +283,8 @@ function Homescreen() {
                     <span>
                       <i
                         className="fa fa-calendar-alt mr-1"
-                        aria-hidden="true"></i>{" "}
+                        aria-hidden="true"
+                      ></i>{" "}
                       {format(new Date(data[0].plannedStartDate), "dd-MMM-yy")}
                     </span>
                   </div>
@@ -326,3 +329,6 @@ function Homescreen() {
 }
 
 export default Homescreen;
+function setTotalHours(hours: any) {
+  throw new Error("Function not implemented.");
+}

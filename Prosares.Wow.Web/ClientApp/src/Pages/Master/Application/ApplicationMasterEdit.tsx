@@ -136,7 +136,8 @@ const ApplicationMasterEdit = () => {
 
     if (action === "reset") {
       setApplication("");
-      setEngagement(null);
+      setEngagement({});
+      setFormErrors({});
     }
   };
 
@@ -184,7 +185,11 @@ const ApplicationMasterEdit = () => {
         objError["ApplicationName_exists"] = "Application Name already exists";
       }
     }
-    if (application == undefined || application == null || application == "") {
+    if (
+      application === undefined ||
+      application === null ||
+      application === ""
+    ) {
       objError["applicationName_isEmpty"] = "Application Name can not be empty";
     }
 

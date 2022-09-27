@@ -37,7 +37,7 @@ namespace Prosares.Wow.Data.Services.ResourceCapacity
 
                 data = data.Where( k => ((value.searchText != null) ? k.Name != null && k.Name.ToLower().Contains(value.searchText.ToLower())  : k.Name != "")).ToList();
                 count = data.Count();
-                data = data.AsQueryable().OrderByPropertyDescending("createdDate").ToList().Skip(value.start).Take(value.pageSize).ToList();
+                data = data.AsQueryable().OrderByPropertyDescending("createdDate").Skip(value.start).Take(value.pageSize).ToList();
             }
 
             else if (value.sortDirection == "desc")

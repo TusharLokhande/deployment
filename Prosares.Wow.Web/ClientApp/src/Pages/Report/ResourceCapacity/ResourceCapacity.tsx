@@ -71,7 +71,9 @@ const ResourceCapacity = () => {
   }, [reset]);
 
   useEffect(() => {
-    GetGridData();
+    (async () => {
+      GetGridData();
+    })();
   }, [sortDirection, sortColumn, searchText, start, pageSize]);
 
   const GetGridData = async () => {
@@ -168,6 +170,7 @@ const ResourceCapacity = () => {
         notify(1, "Something went wrong");
       });
   };
+
   const options = {
     selectableRows: "none",
     count: count,
@@ -179,6 +182,12 @@ const ResourceCapacity = () => {
     viewColumns: false,
     filter: false,
     search: true,
+    onChangeRowsPerPage: (num) => {
+      //   setLimit(num);
+      //   setNxtPgInfo("");
+      //   setPrevPgInfo("");
+      //   setIsPrevOrNext("");
+    },
     onSearchChange: (searchText) => {
       if (searchText !== null) {
         setSearchText(searchText);
@@ -200,7 +209,6 @@ const ResourceCapacity = () => {
       setStart(page * pageSize);
     },
   };
-
   const gridColumns = [
     { name: "name", label: "Resource" },
     { name: "plannedTM", label: "Planned T&M" },

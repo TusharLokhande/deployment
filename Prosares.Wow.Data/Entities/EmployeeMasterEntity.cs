@@ -41,6 +41,9 @@ namespace Prosares.Wow.Data.Entities
         public string CostCenter_Name { get; set; }
         public string PolicyName_Name { get; set; }
         public string TimeSheetPolicy_Name { get; set; }
+        public string WorkPolicyName_Name { get; set; }
+        public string RoleName { get; set; }
+        public string ReportingManager { get; set; }
 
         public double Efficiency { get; set; }
         public string? Email { get; set; }

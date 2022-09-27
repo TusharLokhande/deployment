@@ -36,8 +36,11 @@ namespace Prosares.Wow.Data.Entities
         public string searchText { get; set; }
 
         public DateTime fromDate { get; set; }
+        [Column(TypeName = "date")]
 
         public DateTime toDate { get; set; }
+        [Column(TypeName = "date")]
+
         public string? Engagement_Name { get; set; }
 
         [ForeignKey(nameof(EngagementId))]

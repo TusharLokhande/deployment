@@ -4,7 +4,7 @@ import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import axios from "axios";
 import fileDownload from "js-file-download";
 import moment from "moment";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import DynamicGrid from "../../../Components/DynamicGrid/DynamicGrid";
 import Heading from "../../../Components/Heading/Heading";
@@ -13,6 +13,8 @@ import {
   getMilestoneDataUrl,
   MilestoneExportToExcel,
 } from "../../../Helpers/API/APIEndPoints";
+import { LoaderContext } from "../../../Helpers/Context/Context";
+import notify from "../../../Helpers/ToastNotification";
 import "./MilestoneMaster.css";
 
 const MilestoneMaster = () => {
@@ -36,6 +38,7 @@ const MilestoneMaster = () => {
       .toDate()
   );
   const [filterData, setFilterData] = useState(false);
+  const { showLoader, hideLoader } = useContext(LoaderContext);
 
   const gridColumns = [
     {
@@ -102,6 +105,13 @@ const MilestoneMaster = () => {
         filter: false,
         sort: true,
         sortDescFirst: true,
+        customBodyRender: (value, tableMeta) => {
+          if (value === null || value === "Invalid date") {
+            return <p></p>;
+          } else {
+            return <p>{value}</p>;
+          }
+        },
       },
     },
 
@@ -147,6 +157,7 @@ const MilestoneMaster = () => {
   ];
   useEffect(() => {
     (async () => {
+      showLoader();
       let requestParams = {
         start: start,
         pageSize: pageSize,
@@ -181,6 +192,7 @@ const MilestoneMaster = () => {
         });
       }
       setCount(data.count);
+      hideLoader();
     })();
   }, [start, sortColumn, sortDirection, searchText, filterData]);
 
@@ -223,15 +235,6 @@ const MilestoneMaster = () => {
     },
   };
   const ExportToExcel = async () => {
-    let obj = {
-      start: 1,
-      pageSize: count,
-      sortColumn: sortColumn,
-      sortDirection: sortDirection,
-      searchText: searchText,
-      fromDate: moment(fromDate).format(moment.HTML5_FMT.DATE),
-      toDate: moment(toDate).format(moment.HTML5_FMT.DATE),
-    };
     axios
       .request({
         responseType: "blob",
@@ -245,16 +248,21 @@ const MilestoneMaster = () => {
           "Content-Type": "application/json",
           "Access-Control-Allow-Headers": "*",
         },
-        data: obj,
+        data: {
+          searchText: searchText,
+          sortColumn: sortColumn,
+          sortDirection: sortDirection,
+          fromDate,
+          toDate,
+        },
       })
       .then((response) => {
-        fileDownload(response.data, "Milestone Report.xlsx");
+        fileDownload(response.data, "Milestone.xlsx");
       })
       .catch((error) => {
-        console.log(error.response.data);
+        notify(1, "Something went wrong!");
       });
   };
-
   const handleFilterChange = async (event, name) => {
     if (name === "fromDate") {
       setFromDate(event);

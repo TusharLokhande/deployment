@@ -693,6 +693,7 @@ function TaskAssignment() {
                       placeholder={""}
                       isDisabled={true}
                       textArea={false}
+                      className="numRight"
                       value={allocatedMandays}
                       onChange={(e) => handleTextEvent(e, "allocatedMandays")}
                     />
@@ -705,6 +706,7 @@ function TaskAssignment() {
                       placeholder={""}
                       isDisabled={true}
                       textArea={false}
+                      className="numRight"
                       value={assignedMandays}
                       onChange={(e) => handleTextEvent(e, "assignedMandays")}
                     />
@@ -717,6 +719,7 @@ function TaskAssignment() {
                       placeholder={""}
                       isDisabled={true}
                       textArea={false}
+                      className="numRight"
                       value={balancedMandays}
                       onChange={(e) => handleTextEvent(e, "balancedMandays")}
                     />
@@ -749,7 +752,7 @@ function TaskAssignment() {
                                 />
                             </div>
                         </div> */}
-            <div className="col-lg-3 col-md-4 col-sm-6">
+            <div className="col-lg-4 col-md-4 col-sm-6">
               <div className="form-group">
                 <label>
                   Task Title<sup>*</sup>
@@ -764,7 +767,7 @@ function TaskAssignment() {
               </div>
               <p style={{ color: "red" }}>{formErrors["TaskTitle_isEmpty"]}</p>
             </div>
-            <div className="col-lg-2 col-md-4 col-sm-6">
+            <div className="col-lg-4 col-md-4 col-sm-6">
               <div className="form-group">
                 <label>IsChargeable</label>
                 <br />
@@ -785,7 +788,7 @@ function TaskAssignment() {
             </div>
 
             {!isChargable ? (
-              <div className="col-lg-3 col-md-4 col-sm-6">
+              <div className="col-lg-4 col-md-4 col-sm-6">
                 <div className="form-group">
                   <label>
                     Reason, if not chargeable<sup>*</sup>
@@ -832,7 +835,7 @@ function TaskAssignment() {
                   </div>
                 </>
               ) : null}
-              <div className="col-lg-3 col-md-4 col-sm-6 align-self-end">
+              <div className="col-lg-4 col-md-4 col-sm-6 align-self-end">
                 <div className="form-group">
                   <LocalizationProvider dateAdapter={AdapterDateFns}>
                     <DatePicker
@@ -851,7 +854,7 @@ function TaskAssignment() {
                 </p>
               </div>
 
-              <div className="col-lg-3 col-md-4 col-sm-6 align-self-end">
+              <div className="col-lg-4 col-md-4 col-sm-6 align-self-end">
                 <div className="form-group">
                   <LocalizationProvider dateAdapter={AdapterDateFns}>
                     <DatePicker

@@ -220,7 +220,7 @@ const CalendarUI = () => {
             </p>
           );
         default:
-          return null;
+          return <p>&nbsp;</p>;
       }
     }
   };
@@ -358,17 +358,10 @@ const CalendarUI = () => {
                           <tr>
                             <th>Name</th>
                             <th>Icon</th>
-                            <th>Count</th>
+                            <th>Days</th>
                           </tr>
                         </thead>
                         <tbody>
-                          <tr>
-                            <td>Today</td>
-                            <td>
-                              <FaHourglassHalf color="orange" />
-                            </td>
-                            <td>1</td>
-                          </tr>
                           <tr>
                             <td>Full day</td>
                             <td>
@@ -427,6 +420,21 @@ const CalendarUI = () => {
                               <FaMinusCircle color="maroon" />
                             </td>
                             <td>{counts.weekend}</td>
+                          </tr>
+                          <tr>
+                            <td>Total</td>
+                            <td></td>
+                            <td>
+                              {counts.weekend +
+                                counts.notfilled +
+                                counts.holiday +
+                                counts["applied leave"] +
+                                counts["first half day approved leave"] +
+                                counts["second half day approved leave"] +
+                                counts["full day approved leave"] +
+                                counts.discrepancy +
+                                counts.full}
+                            </td>
                           </tr>
                         </tbody>
                       </table>

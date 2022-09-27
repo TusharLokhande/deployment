@@ -122,7 +122,8 @@ namespace Prosares.Wow.Web.Controllers
 
         public dynamic ExportToExcel([FromBody] MileStone value)
         {
-            var data = _milestoneService.ExportToExcel(value);
+            
+            var data = _milestoneService.MilestoneExportToExcel(value);
             byte[] dataBytes;
             MemoryStream ms = new MemoryStream();
             if (data == null)
@@ -139,7 +140,7 @@ namespace Prosares.Wow.Web.Controllers
                     {
 
                         "MileStone",
-                        "Engagement_Name",
+                        "Engagement",
                         "Amount",
                         "PlannedDate",
                         "RevisedDate",
@@ -177,13 +178,13 @@ namespace Prosares.Wow.Web.Controllers
                 }
 
                 int row = 2;
-                foreach (var item in data)
+                foreach (MileStone item in data)
                 {
                     int col = 1;
                     worksheet.Cells[row, col].Value = item.MileStones;
                     col++;
                     worksheet.Cells[row, col].Value = item.Engagement_Name;
-                    col++;
+                   col++;
                     worksheet.Cells[row, col].Value = item.Amount;
                     col++;
 

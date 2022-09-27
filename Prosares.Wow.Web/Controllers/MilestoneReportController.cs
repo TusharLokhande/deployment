@@ -107,9 +107,9 @@ namespace Prosares.Wow.Web.Controllers
                     worksheet.Cells[row, col].Value = item.POValue; col++;
                     worksheet.Cells[row, col].Value = item.MileStone; col++;
                     worksheet.Cells[row, col].Value = item.Amount; col++;
-                    worksheet.Cells[row, col].Value = item.PlannedDate !=null ? item.PlannedDate : ""; col++;
-                    worksheet.Cells[row, col].Value = item.RevisedDate != null? item.RevisedDate :""; col++;
-                    worksheet.Cells[row, col].Value = item.InvoicedDate != null ? item.InvoicedDate : "" ; col++;
+                    worksheet.Cells[row, col].Value = item.PlannedDate !=null ? (Convert.ToDateTime(item.PlannedDate)).ToString("dd/MM/yyyy") : ""; col++;
+                    worksheet.Cells[row, col].Value = item.RevisedDate != null? (Convert.ToDateTime(item.PlannedDate)).ToString("dd/MM/yyyy") : ""; col++;
+                    worksheet.Cells[row, col].Value = item.InvoicedDate != null ? (Convert.ToDateTime(item.PlannedDate)).ToString("dd/MM/yyyy") : "" ; col++;
                     row++;
                 }
 

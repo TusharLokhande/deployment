@@ -18,5 +18,6 @@ namespace Prosares.Wow.Data.Services.Milestone
 
         public dynamic ExportToExcel(Entities.MileStone value);
 
+        public dynamic MilestoneExportToExcel(MileStone value);
     }
 }

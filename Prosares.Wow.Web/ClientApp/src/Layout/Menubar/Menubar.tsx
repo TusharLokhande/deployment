@@ -495,7 +495,7 @@ function Menubar(props) {
                   href={`${process.env.REACT_APP_PUBLISH_PATH}/assets/WoW_UserGuide.pptx`}
                   download={"WoW_UserGuide.pptx"}
                 >
-                  <span className="title">Help</span>
+                  <span className="title">User manual</span>
                 </a>
               </li>
               <li>

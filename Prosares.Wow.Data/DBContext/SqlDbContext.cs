@@ -288,6 +288,9 @@ namespace Prosares.Wow.Data.DBContext
                 entity.Ignore(e => e.CostCenter_Name);
                 entity.Ignore(e => e.PolicyName_Name);
                 entity.Ignore(e => e.TimeSheetPolicy_Name);
+                entity.Ignore(e => e.WorkPolicyName_Name);
+                entity.Ignore(e => e.RoleName);
+                entity.Ignore(e => e.ReportingManager);
                 entity.Ignore(e => e.CurrentPassword);
 
 
